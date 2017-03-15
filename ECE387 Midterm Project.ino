@@ -10,8 +10,8 @@ const int flexPin = A0; //pin A0 to read analog input
 int valueR; //save analog value
 int valueG;
 
-const float STRAIGHT_RESISTANCE = 10000.0; // resistance when straight
-const float BEND_RESISTANCE = 65000.0;
+const float straight = 10000.0; // resistance when straight
+const float bend = 65000.0;
 const float Resistor2 = 24400.0;
 const float VCC = 5.0;
 
@@ -35,6 +35,10 @@ void loop()
   analogWrite(ledPinR, valueR);          //Send PWM value to led
   analogWrite(ledPinG, valueG);
   
+  
+  ///////////////////////////////////////////////////////////////////////////////////////////////////
+  //Added Value
+  ///////////////////////////////////////////////////////////////////////////////////////////////////
    // Read the ADC, and calculate voltage and resistance from it
   int flexADC = analogRead(flexPin);
   float flexVoltage = flexADC * VCC / 1023.0;
@@ -43,7 +47,7 @@ void loop()
 
   // Use the calculated resistance to estimate the sensor's
   // bend angle:
-  float angle = map(flexResistance, STRAIGHT_RESISTANCE, BEND_RESISTANCE,
+  float angle = map(flexResistance, straight, Bend,
                    0, 180.0);
   Serial.println("Bend Angle: " + String(angle) + " degrees");
   Serial.println();
