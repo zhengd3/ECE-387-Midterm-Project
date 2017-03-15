@@ -17,6 +17,7 @@ void setup()
 void loop()
 {
    // Read the analog value (ADC), and calculate voltage and resistance from it
+  value = analogRead(flexPin);         //Read and save analog value from flex sensor
   float Voltage = value * VCC / 1023.0;
   float Resistance = R2 * (VCC / Voltage - 1.0);
   Serial.println("Resistance: " + String(Resistance) + " ohms");
