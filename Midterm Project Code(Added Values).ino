@@ -24,8 +24,8 @@ void loop()
 {
   value = analogRead(flexPin);         //Read and save analog value from flex sensor
   Serial.println("Value is: " + String(value));  //Print value
-  int valueR = map(value, 50, 700, 0, 255);//Map value 0-1023 to 0-255 (PWM)
-  int valueG = map(value, 700, 250, 0, 255);
+  int valueR = map(value, 50, 725, 0, 255);//Map value 0-1023 to 0-255 (PWM)
+  int valueG = map(value, 735, 250, 0, 255);
   analogWrite(ledPinR, valueR);          //Send PWM value to led
   analogWrite(ledPinG, valueG);
   
